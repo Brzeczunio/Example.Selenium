@@ -7,5 +7,10 @@ namespace Example.Selenium
         private IWebElement _element { get; set; }
 
         public void Click() => _element.Click();
+
+        public Button(IWebElement element)
+        {
+            _element = element;
+        }
     }
 }

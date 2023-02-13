@@ -4,7 +4,7 @@ namespace Example.Selenium
 {
     public class Input
     {
-        public IWebElement _element { get; set; }
+        private IWebElement _element { get; set; }
 
         public void SendKeys(string text) => _element.SendKeys(text);
 
