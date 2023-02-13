@@ -1,23 +1,26 @@
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
 namespace Example.Selenium
 {
     public class Tests
     {
+        private IWebDriver driver;
+
         [SetUp]
         public void Setup()
         {
+            driver = new ChromeDriver();
+            driver.Navigate()
+                .GoToUrl("http:///www.google.pl");
         }
 
         [Test]
-        public void Test1()
+        public void SendKeysToInput()
         {
-            var driver = new ChromeDriver();
-            driver.Navigate().GoToUrl("http:///www.google.pl");
-
-            var googlePage = new GooglePage(driver);
-            googlePage.SearchInput.SendKeys("aaa");
-            Assert.Pass();
+            new GooglePage(driver)
+                .SearchInput
+                .SendKeys("aaa");
         }
     }
 }
