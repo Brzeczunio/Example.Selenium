@@ -18,9 +18,10 @@ namespace Example.Selenium
         [Test]
         public void SendKeysToInput()
         {
-            new GooglePage(driver)
-                .SearchInput
-                .SendKeys("aaa");
+            var googlePage = new GooglePage(driver);
+
+            googlePage.AcceptAll.Click();
+            googlePage.SearchInput.SendKeys("aaa");
         }
     }
 }

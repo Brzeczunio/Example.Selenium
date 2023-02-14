@@ -4,13 +4,15 @@ namespace Example.Selenium
 {
     public class Input
     {
-        private IWebElement _element { get; set; }
+        private IWebDriver _driver;
+        private By _by;
 
-        public void SendKeys(string text) => _element.SendKeys(text);
+        public void SendKeys(string text) => _driver.WaitForVisible(_by).SendKeys(text);
 
-        public Input(IWebElement element)
+        public Input(IWebDriver driver, By by)
         {
-            _element = element;
+            _driver = driver;
+            _by = by;
         }
     }
 }

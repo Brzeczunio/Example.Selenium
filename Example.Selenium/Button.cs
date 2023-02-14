@@ -4,13 +4,15 @@ namespace Example.Selenium
 {
     public class Button
     {
-        private IWebElement _element { get; set; }
+        private IWebDriver _driver;
+        private By _by;
 
-        public void Click() => _element.Click();
+        public void Click() => _driver.WaitForClickable(_by).Click();
 
-        public Button(IWebElement element)
+        public Button(IWebDriver driver, By by)
         {
-            _element = element;
+            _driver = driver;
+            _by = by;
         }
     }
 }
