@@ -11,8 +11,7 @@ namespace Example.Selenium
         public void Setup()
         {
             driver = new ChromeDriver();
-            driver.Navigate()
-                .GoToUrl("http:///www.google.pl");
+            driver.Navigate().GoToUrl("http:///www.google.pl");
         }
 
         [Test]
